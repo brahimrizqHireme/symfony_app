@@ -3,6 +3,8 @@
 /public/bundles/
 /var/
 /vendor/
+/data/
+/app_data/
 ###< symfony/framework-bundle ###
 
 ###> romaricp ###
