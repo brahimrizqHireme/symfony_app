@@ -1,0 +1,20 @@
+default:
+  autoload:
+    - "%paths.base%/features/bootstrap"
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://localhost:8080
+      sessions:
+        default:
+          goutte: ~
+  suites:
+    database_features:
+      paths:
+        - "%paths.base%/features/database"
+      contexts:
+        - DatabaseContext
+    user_features:
+      paths:
+        - "%paths.base%/features/user"
+      contexts:
+        - UserContext

@@ -18,6 +18,10 @@ services:
             MYSQL_DATABASE: sf4
             MYSQL_USER: sf4
             MYSQL_PASSWORD: sf4
+        ports:
+            - 3306:3306
+        networks:
+            - landLoardNet
     sf4_php:
         image: sf4_php:latest
         container_name: sf4_php
@@ -45,9 +49,14 @@ services:
             - 8081:80
         links:
             - mysql
-
+        depends_on:
+            - mysql
+        networks:
+            - landLoardNet
     maildev:
         image: djfarrelly/maildev
         container_name: sf4_maildev
         ports:
-          - 8001:80
+            - 8001:80
+        networks:
+            - landLoardNet
